@@ -22,18 +22,28 @@
       <table>
         <thead>
           <tr>
+            <th>Type</th>
             <th>Purpose</th>
-            <th>When</th>
+            <th>Who Paid</th>
+            <th>Participants</th>
+            <th>Date</th>
             <th>Amount</th>
           </tr>
         </thead>
-        <tbody id="expense body"></tbody>
+        <tbody id="expense-body"></tbody>
         <tfoot>
-          <td>Total</td>
-          <td id="total"></td>
-          <td></td>
-        </tfoot>
+        <tr>
+            <td colspan="5"><b>Total Personal Expense</b></td>
+            <td id="total"></td>
+        </tr>
+
+        <tr>
+            <td colspan="5"><b>For You (Group Share)</b></td>
+            <td id="for-you"></td>
+        </tr>
+</tfoot>
       </table>
     </div>
+    <script src="last.js"></script>
 </body>
 </html>
