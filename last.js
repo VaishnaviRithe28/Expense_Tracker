@@ -15,26 +15,58 @@ async function loadExpenses() {
 
         tableBody.innerHTML = "";
 
-        let totalAmount = 0;
+        // let totalAmount = 0;
 
-        expenses.forEach(expense => {
-            totalAmount += expense.amount;
+        // expenses.forEach(expense => {
+        //     totalAmount += expense.amount;
 
-            const row = document.createElement("tr");
+        //     const row = document.createElement("tr");
 
-            row.innerHTML = `
-                <td>${expense.type}</td>
-                <td>${expense.purpose}</td>
-                <td>${expense.whoPaid}</td>
-                <td>${expense.participants.length ? expense.participants.join(", ") : "-"}</td>
-                <td>${new Date(expense.date).toLocaleDateString()}</td>
-                <td>₹${expense.amount}</td>
-            `;
+        //     row.innerHTML = `
+        //         <td>${expense.type}</td>
+        //         <td>${expense.purpose}</td>
+        //         <td>${expense.whoPaid}</td>
+        //         <td>${expense.participants.length ? expense.participants.join(", ") : "-"}</td>
+        //         <td>${new Date(expense.date).toLocaleDateString()}</td>
+        //         <td>₹${expense.amount}</td>
+        //     `;
 
-            tableBody.appendChild(row);
-        });
+        //     tableBody.appendChild(row);
+        // });
 
-        totalDisplay.textContent = "₹" + totalAmount.toFixed(2);
+        // totalDisplay.textContent = "₹" + totalAmount.toFixed(2);
+        let totalPersonal = 0;
+let forYou = 0;
+
+expenses.forEach(expense => {
+
+    // Calculate only personal total
+    if (expense.type === "personal") {
+        totalPersonal += expense.amount;
+    }
+
+    // Calculate your share in group expenses
+    if (expense.type === "group") {
+        const share = expense.amount / (expense.participants.length + 1);
+        forYou += share;
+    }
+
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td>${expense.type}</td>
+        <td>${expense.purpose}</td>
+        <td>${expense.whoPaid}</td>
+        <td>${expense.participants.length ? expense.participants.join(", ") : "-"}</td>
+        <td>${new Date(expense.date).toLocaleDateString()}</td>
+        <td>₹${expense.amount}</td>
+    `;
+
+    tableBody.appendChild(row);
+});
+
+document.getElementById("total").textContent = "₹" + totalPersonal.toFixed(2);
+document.getElementById("for-you").textContent = "₹" + forYou.toFixed(2);
 
     } catch (err) {
         console.error("Error:", err);
