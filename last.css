@@ -1,0 +1,41 @@
+.expense{
+    margin: 20px;
+}
+table{
+    margin-left: 210px;
+    width: 70%;
+    border-collapse: collapse;
+}
+th,td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th{
+    background-color: yellow;
+    color: #111;
+}
+.nav{
+    margin-top: 15px;
+    margin-left: 75%;
+    height: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    color: blue;
+}
+.nav-link {
+    margin-right: 25px; 
+    color: blue;
+}
+.b1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.5cm;
+    margin-top: 50px;
+    margin-left: 178px;
+    background-color: rgb(240, 99, 99);
+    color: #fff;
+    border-radius: 7%;
+    border-color: white;
+    width: 250px;
+    height: 50px;
+}

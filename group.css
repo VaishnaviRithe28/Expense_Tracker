@@ -1,0 +1,191 @@
+.mb-3{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.6cm;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.open-delete{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.5cm;
+    background-color: #20ef5b;
+    color: aliceblue;
+    border-radius: 10%;
+    border: #20ef5b;
+    margin-left: 80px;
+    margin-top: 20px;
+    display: inline-flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center; 
+}
+.open-add{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.5cm;
+    background-color: #20ef5b;
+    color: aliceblue;
+    border-radius: 10%;
+    border: #20ef5b;
+    margin-left: 60px;
+    margin-top: 20px;
+    display: inline-flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center; 
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: filter 0ms ease-in-out 0ms;
+    /* width: 500px; */
+}
+.f1{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+/* .table{
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    height: 420px;
+    width: 700px;
+    margin-left: 35px;
+    margin-left: 400px;
+} */
+.expense{
+    margin: 20px;
+}
+table{
+    margin-left: 210px;
+    width: 70%;
+    border-collapse: collapse;
+}
+th,td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th{
+    background-color: yellow;
+    color: #111;
+}
+.nav{
+    margin-top: 15px;
+    margin-left: 75%;
+    height: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    color: blue;
+}
+.nav-link {
+    margin-right: 25px; 
+    color: blue;
+}
+.popup{
+    position: absolute;
+    /* top: -100%; */
+    display: none;
+    left: 50%;
+    transform: translate(-50%,50%);
+    width: 450px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px 5px rgba(0,0,0,0.1);
+}
+.popup > *{
+    margin: 15px 0px;
+}
+.popup .close-add{
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: #eee;
+    color: #111;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: top 0ms ease-in-out 300ms,
+                opacity 300ms ease-in-out,
+                margin-top 300ms ease-in-out;
+}
+body.active-popup {
+    overflow: hidden;
+}
+body.active-popup .popup{
+    top: 50%;
+    opacity: 1;
+    margin-top: 0px;
+    transition: top 0ms ease-in-out 0ms,
+                opacity 300ms ease-in-out,
+                margin-top 300ms ease-in-out;
+}
+body.active-popup .container{
+    filter: blur(5px);
+    background: rgba(0,0,0,0.8);
+    transition: filter 0ms ease-in-out 0ms;
+}
+.popup2{
+    position: absolute;
+    /* top: -100%; */
+    display: none;
+    left: 50%;
+    transform: translate(-50%,50%);
+    width: 450px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px 5px rgba(0,0,0,0.1);
+}
+.popup2 > *{
+    margin: 15px 0px;
+}
+.popup2 .close-delete{
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: #eee;
+    color: #111;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: top 0ms ease-in-out 300ms,
+                opacity 300ms ease-in-out,
+                margin-top 300ms ease-in-out;
+}
+
+body.active-popup2 {
+    overflow: hidden;
+}
+body.active-popup2 .popup2{
+    top: 50%;
+    opacity: 1;
+    margin-top: 0px;
+    transition: top 0ms ease-in-out 0ms,
+                opacity 300ms ease-in-out,
+                margin-top 300ms ease-in-out;
+}
+body.active-popup2 .container{
+    filter: blur(5px);
+    background: rgba(0,0,0,0.8);
+    transition: filter 0ms ease-in-out 0ms;
+}

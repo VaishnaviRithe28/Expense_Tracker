@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Expense</title>
+    <link rel="stylesheet" href="group.css">
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-link active" aria-current="page" href="front.html">Home</a>
+    <a class="nav-link" href="last.html">My Expense</a>
+    <a class="nav-link" href="feedback.html">Feedback</a>
+  </nav>
+    <div class="container">
+      <div class="f1">
+        <div class="mb-3">
+          <label for="formGroupExampleInput" class="form-label">Purpose</label>
+          <input type="text" class="form-control" id="purpose" placeholder="Food">
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Who paid</label>
+          <input type="text" class="form-control" id="who-paid" placeholder="Harry">
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Participants</label>
+          <input type="text" class="form-control" id="participants" placeholder="John,Ron,Alice">
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Amount</label>
+          <input type="number" class="form-control" id="amount" placeholder="500">
+        </div>
+        <div class="mb-3">
+          <label for="formGroupExampleInput2" class="form-label">Date</label>
+          <input type="date" class="form-control" id="date-input" placeholder="500">
+        </div>
+        <button type="button" class="open-add"onclick="AddData()" id="add">Add</button>
+        <button type="button" onclick="deleteData()"class="open-delete" id="delete">Delete</button>
+      </div>
+    </div>
+    <div class="popup">
+      <button class="close-add">&times;</button>
+      <h3>Data saved successfully..</h3>
+    </div>
+    <div class="popup2">
+      <button class="close-delete">&times;</button>
+      <h3>Data deleted successfully..</h3>
+    </div>
+      <!-- <a href="#" style="width: 50%" class="btn btn-primary" >Create New</a> -->
+    <div class="expenses-list">
+      <h2>
+        Expense List
+      </h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Who paid</th>
+            <th>Amount</th>
+            <th>Purpose</th>
+            <th>When</th>
+            <th>Participants</th>
+            <th>For you</th>
+            <th>Delete</th>
+
+          </tr>
+        </thead>
+        <tbody id="expense-table-body"></tbody>
+        <tfoot>
+          <td>Total</td>
+          <td id="total-amount"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tfoot>
+      </table>
+    </div>
+      <script src="group.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+
+.card{
+    display: inline-flex;
+    height: 550px;
+    justify-content: center;
+    margin-left: 180px;
+    margin-top: 80px;
+    width: 500px;
+} 
+.img{
+    height: 450px;
+    width: 300px;
+    justify-items: center;
+    margin-left: 80px;
+}
+.nav{
+    margin-top: 15px;
+    margin-left: 75%;
+    height: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    color: blue;
+}
+.nav-link {
+    margin-right: 25px; 
+    color: blue;
+}

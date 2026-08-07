@@ -1,0 +1,12 @@
+.nav{
+    margin-top: 15px;
+    margin-left: 75%;
+    height: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    color: blue;
+}
+.nav-link {
+    margin-right: 25px; 
+    color: blue;
+}
