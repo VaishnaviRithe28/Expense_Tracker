@@ -25,6 +25,7 @@ window.onload = function () {
     closeDeleteButton.addEventListener("click", function () {
         deletePopup.style.display = "none";
     });
+    loadExpenses();
 };
 
 // Expense Tracking Logic
@@ -149,7 +150,41 @@ function clearInputs() {
     whoPaidInput.value = "";
     participantsInput.value = "";
 }
+async function loadExpenses() {
+    try {
+        const response = await fetch("http://localhost:5000/get-expenses");
+        const data = await response.json();
 
+        expenses = [];
+        totalAmount = 0;
+        tableBody.innerHTML = "";
+
+        data.forEach(expense => {
+            if (expense.type === "group") {
+
+                const perPersonShare =
+                    expense.amount / (expense.participants.length + 1);
+
+                expenses.push(expense);
+                totalAmount += expense.amount;
+
+                addExpenseToTable({
+                    purpose: expense.purpose,
+                    amount: expense.amount,
+                    date: new Date(expense.date).toLocaleDateString(),
+                    whoPaid: expense.whoPaid,
+                    participants: expense.participants.join(", "),
+                    perPersonShare
+                });
+            }
+        });
+
+        totalDisplay.textContent = totalAmount.toFixed(2);
+
+    } catch (err) {
+        console.error(err);
+    }
+}
 // window.onload = function () {
 //     // Add Popup Elements
 //     const openAddButton = document.getElementById("add");
