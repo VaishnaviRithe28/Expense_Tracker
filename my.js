@@ -25,6 +25,7 @@ window.onload = function () {
     closeDeleteButton.addEventListener("click", function () {
         deletePopup.style.display = "none";
     });
+    loadExpenses();
 };
 
 // Expense Tracking Logic
@@ -168,7 +169,34 @@ function clearInputs() {
     amountInput.value = "";
     dateInput.value = "";
 }
+async function loadExpenses() {
+    try {
+        const response = await fetch("http://localhost:5000/get-expenses");
+        const data = await response.json();
 
+        expenses = [];
+        totalAmount = 0;
+        tableBody.innerHTML = "";
+
+        data.forEach(expense => {
+            if (expense.type === "personal") {
+                expenses.push(expense);
+                totalAmount += expense.amount;
+
+                addExpenseToTable({
+                    purpose: expense.purpose,
+                    amount: expense.amount,
+                    date: new Date(expense.date).toLocaleDateString()
+                });
+            }
+        });
+
+        totalDisplay.textContent = totalAmount.toFixed(2);
+
+    } catch (err) {
+        console.error(err);
+    }
+}
 // window.onload = function () {
 //     // Add Popup Elements
 //     const openAddButton = document.querySelector(".open-add");
